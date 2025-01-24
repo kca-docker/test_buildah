@@ -1,12 +1,12 @@
 ---
 variables:
-  dhub: &dhub https://index.docker.io/v1/
-  reg: &reg docker.io
-  repo: &repo bksolutions
-  app: &app buildah-multiarch
-  tag: &tag v0.0.1"
-  manifest: &manifest multiarch
-  buildpath: &buildpath .
+  - &dhub https://index.docker.io/v1/
+  - &reg docker.io
+  - &repo bksolutions
+  - &app buildah-multiarch
+  - &tag v0.0.1"
+  - &manifest multiarch
+  - &buildpath .
 
 
 
