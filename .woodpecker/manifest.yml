@@ -20,4 +20,4 @@ steps:
   manifest:
     image: quay.io/buildah/stable
     commands:
-      - buildah manifest create *manifest
+      - buildah manifest create manifest
