@@ -1,0 +1,23 @@
+---
+variables:
+  dhub: &dhub https://index.docker.io/v1/
+  reg: &reg docker.io
+  repo: &repo bksolutions
+  app: &app buildah-multiarch
+  tag: &tag v0.0.1"
+  manifest: &manifest multiarch
+  buildpath: &buildpath .
+
+
+
+
+when:
+  - event: [push,manual]
+    branch: main
+
+
+steps:
+  manifest:
+    image: quay.io/buildah/stable
+    commands:
+      - buildah manifest create *manifest

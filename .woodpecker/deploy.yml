@@ -1,0 +1,14 @@
+---
+depends_on:
+  - build
+
+steps:
+  manifest:
+    when:
+      - event: [push]
+        branch: main
+    image: quay.io/buildah/stable
+    commands:
+      - buildah manifest push --all \
+        *manifest \
+        "*hub*repo/*app:*tag"

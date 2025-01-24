@@ -1,0 +1,41 @@
+---
+
+when:
+  - event: [push,manual]
+    branch: main
+
+depends_on:
+  - manifest
+
+steps:
+  build_amd64:
+    image: quay.io/buildah/stable
+    commands:
+      - buildah bud --tag *reg/*repo/*app:*tag \
+        --manifest *manifest \
+        --aarch amd64 \
+        *buildpath
+
+  build_386:
+    image: quay.io/buildah/stable
+    commands:
+      - buildah bud --tag *reg/*repo/*app:*tag \
+        --manifest *manifest \
+        --aarch 386 \
+        *buildpath
+
+  build_arm:
+    image: quay.io/buildah/stable
+    commands:
+      - buildah bud --tag *reg/*repo/*app:*tag \
+        --manifest *manifest \
+        --aarch arm64 \
+        *buildpath
+
+  build_arm64:
+    image: quay.io/buildah/stable
+    commands:
+      - buildah bud --tag *reg/*repo/*app:*tag \
+        --manifest *manifest \
+        --aarch arm64 \
+        *buildpath

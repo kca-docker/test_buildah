@@ -1,0 +1,17 @@
+ARG IMAGE=alpine
+ARG BASEFOLDER=/opt
+ARG APP=app
+ARG APPFOLDER=${BASEFOLDER}/${APP}
+
+
+
+
+FROM ${IMAGE}
+
+WORKDIR ${APPFOLDER}
+
+COPY *.sh .
+RUN chmod +x *.sh
+
+ENTRYPOINT ["example.sh"]
+CMD [""]
